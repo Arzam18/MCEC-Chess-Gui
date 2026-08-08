@@ -11,7 +11,7 @@ class ChessBoardView(context: Context) : View(context) {
     private val darkSquarePaint = Paint().apply { color = android.graphics.Color.parseColor("#B58863") }
     private val piecePaint = Paint().apply {
         textAlign = Paint.Align.CENTER
-        typeface = Typeface.DEFAULT_BOARD
+        typeface = Typeface.DEFAULT
     }
 
     private val board = arrayOf(
@@ -50,13 +50,13 @@ class ChessBoardView(context: Context) : View(context) {
                     val unicodeChar = getChessUnicode(piece)
                     val xCenter = x + tileSize / 2f
                     val yCenter = y + tileSize / 2f - (piecePaint.descent() + piecePaint.ascent()) / 2f
-
+                    
                     piecePaint.color = if (piece[0].isUpperCase()) {
                         android.graphics.Color.WHITE
                     } else {
                         android.graphics.Color.BLACK
                     }
-
+                    
                     canvas.drawText(unicodeChar, xCenter, yCenter, piecePaint)
                 }
             }
